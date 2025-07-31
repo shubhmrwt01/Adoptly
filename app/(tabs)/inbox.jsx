@@ -50,7 +50,7 @@ export default function Inbox() {
           ...other[0],
         };
       })
-      .filter(Boolean); // removes nulls
+      .filter(Boolean); 
   };
 
   return (
