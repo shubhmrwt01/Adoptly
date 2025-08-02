@@ -1,52 +1,168 @@
-# Welcome to your Expo app 👋
+<h1>
+  🐾 Adoptly – Pet Donation App
+  <img 
+    src="https://firebasestorage.googleapis.com/v0/b/adoptly-b8aef.firebasestorage.app/o/icon.png?alt=media&token=e2637926-733e-427c-a9ed-2c911a31f653" 
+    width="40" 
+    style="border-radius: 50%; vertical-align: middle; margin-left: 30px;" 
+  />
+</h1>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A **React Native** application that helps users **find, donate, and adopt pets** with ease. Built with **Clerk** for secure authentication, **Firebase Firestore** for real-time data storage, and powered by **Gemini API** for an intelligent chatbot experience.
 
-## Get started
+---
 
-1. Install dependencies
+## 📌 Table of Contents
 
-   ```bash
-   npm install
-   ```
+* [About](#about)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Installation](#installation)
+* [Usage](#usage)
+* [App Screenshots](#app-screenshots)
+* [Download & QR Code](#download--qr-code)
+* [Project Structure](#project-structure)
+* [Contributing](#contributing)
+* [License](#license)
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📖 About
 
-In the output, you'll find options to open the app in a
+**Adoptly** is a pet adoption and donation platform that connects pet owners and potential adopters. Users can browse available pets, chat with owners in real-time, mark favorites, and add new pets for donation. It includes **Adopto**, an AI-powered chatbot that provides app-related insights and additional information using **Gemini API**.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## ✨ Features
 
-## Get a fresh project
+* **Google Authentication** via **Clerk**
+* **Add New Pets** for adoption or sale
+* **Favorite Pets** management
+* **Real-time Chat** between buyers and pet owners
+* **Nearby Pet Adoption & Sale Listings**
+* **AI Chatbot – Adopto** (answers queries about pets or app)
+* **Firestore Integration** for pet data storage
+* **Cross-platform Support** (Android & iOS)
 
-When you're ready, run:
+---
+
+## 🛠 Tech Stack
+
+* **React Native + Expo Router**
+* **Clerk** (Google OAuth Authentication)
+* **Firebase Firestore** (Realtime database)
+* **Gemini API** (AI Chatbot - Adopto)
+* **React Native Paper** (UI Components)
+* **Zustand / Context API** (State Management)
+* **React Navigation** (Routing)
+* **FlashList** (Optimized chat list rendering)
+
+---
+
+## ⚙️ Installation
+
+### Prerequisites
+
+* Node.js >= 14
+* Expo CLI installed globally
+* Firebase & Clerk accounts configured
+* Gemini API Key
+
+### Steps
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/shubhmrwt01/Adoptly.git
+
+# Navigate into the project directory
+cd Adoptly
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the project
+npm start
+# or
+yarn start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 Usage
 
-To learn more about developing your project with Expo, look at the following resources:
+1. Start the development server:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+   ```bash
+   npm start
+   ```
+2. Scan the QR code with **Expo Go** app to run on your device.
+3. Login with **Google account** to access features.
+4. Add, favorite, and chat about pets directly within the app.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 📸 App Screenshots
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# Adoptly
-# Adoptly
+*(Attach your screenshots here)*
+
+Example:
+![Screenshot](./assets/screenshots/home.png)
+
+---
+
+## 📲 Download & QR Code
+
+* **GitHub Repository**: [Adoptly Repo](https://github.com/shubhmrwt01/Adoptly.git)
+
+* **App URL**: *https://tinyurl.com/Adoptly-Pet-Donation-App*
+
+* **QR Code to Install:**
+  <p align="center">
+  <img src="https://firebasestorage.googleapis.com/v0/b/adoptly-b8aef.firebasestorage.app/o/frame.png?alt=media&token=e8e9942d-af15-479f-bbb8-5f1acbc06680" width="250" />
+</p>
+
+
+---
+
+## 📂 Project Structure
+
+```
+Adoptly/
+├── app/
+│   ├── (tabs)/
+│   ├── chat/
+│   ├── chatbot/
+│   ├── pet-details/
+│   ├── user-post/
+│   ├── add-new-pet/
+│   └── index.jsx
+├── assets/
+├── components/
+├── config/
+├── constants/
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-name`)
+3. Commit changes (`git commit -m "Add feature"`)
+4. Push to branch (`git push origin feature-name`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+© 2025 Shubham Rawat – All rights reserved.
+
