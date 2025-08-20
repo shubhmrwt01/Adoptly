@@ -137,10 +137,10 @@ yarn start
 </p>
 <p align="center">
  
-  <img src="assets/images/Screenshot4.png" width="220" />
-  <img src="assets/images/Screenshot5.png" width="220" />
-  <img src="assets/images/Screenshot6.png" width="220" />
-  <img src="assets/images/Screenshot7.png" width="220" />
+  <img src="assets/images/Screenshot4.png" width="165" />
+  <img src="assets/images/Screenshot5.png" width="165" />
+  <img src="assets/images/Screenshot6.png" width="165" />
+  <img src="assets/images/Screenshot7.png" width="165" />
 </p>
 <p align="center">
   <img src="assets/images/Screenshot8.png" width="220" />
