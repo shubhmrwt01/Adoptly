@@ -147,7 +147,6 @@ yarn start
   <img src="assets/images/Screenshot8.1.jpg" width="220" />
   <img src="assets/images/Screenshot9.png" width="220" />
 </p>
----
 
 ## 📥 Download & QR Code
 
