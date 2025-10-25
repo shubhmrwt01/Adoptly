@@ -1,202 +1,282 @@
+<div align="center">
 
+<img src="assets/images/icon.png" width="120" height="120" alt="Adoptly Logo"/>
 
-# 🐾 Adoptly – Pet Donation App &nbsp; &nbsp;<img src="assets/images/icon.png" width="40" height="40"  />
+# 🐾 Adoptly
 
-> **A modern React Native app** to find, donate, and adopt pets.
-> Built with **Clerk** for secure authentication, **Firebase Firestore** for real-time data, and **Gemini API** for an AI-powered chatbot.
+### *Connect Hearts, Find Homes*
 
----
+**A beautiful React Native app bringing pet owners and adopters together**
 
-## 📌 Table of Contents
+[![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.dev/)
 
-* [About](#about)
-* [Features](#features)
-* [Tech Stack](#tech-stack)
-* [Installation](#installation)
-* [Usage](#usage)
-* [App Screenshots](#app-screenshots)
-* [Download & QR Code](#download--qr-code)
-* [Project Structure](#project-structure)
-* [Contributing](#contributing)
-* [License](#license)
+[Download App](https://shorturl.at/2NBPt) • [Report Bug](https://github.com/shubhmrwt01/Adoptly/issues) • [Request Feature](https://github.com/shubhmrwt01/Adoptly/issues)
+
+</div>
 
 ---
 
-## About
+## ✨ What Makes Adoptly Special
 
-**Adoptly** is a platform to connect **pet owners and adopters**. Users can browse pets, favorite listings, chat with owners in real time, and even get **AI-driven assistance** for pet-related queries through **Adopto**, the in-app chatbot.
+Adoptly isn't just another pet adoption app—it's a complete ecosystem designed to make pet adoption seamless, secure, and smart. With real-time communication, AI-powered assistance, and a beautiful interface, finding your perfect companion has never been easier.
 
----
+<table>
+<tr>
+<td width="50%">
 
-## ✨ Features
+### 🔐 **Secure Authentication**
+Google OAuth integration via Clerk ensures your data stays safe while keeping login friction-free.
 
-### **1. Google Authentication (Clerk)**
+### 💬 **Real-Time Chat**
+Connect instantly with pet owners through our Firestore-powered messaging system.
 
-* Secure Google login & signup.
-* Session management via Clerk.
+### 🤖 **AI Assistant - Adopto**
+Get instant answers about pet care, adoption tips, and app navigation powered by Gemini AI.
 
-### **2. Add New Pets for Adoption/Sale**
+</td>
+<td width="50%">
 
-* Create listings with pet name, breed, age, health info, and photos.
-* Quick donation/adoption process.
+### ❤️ **Smart Favorites**
+Bookmark pets you love and track them in real-time as their status updates.
 
-### **3. Manage Favorite Pets**
+### 📍 **Location-Based Discovery**
+Find adorable pets and adoption events happening near you.
 
-* Save favorite pets for easy access.
-* Real-time updates via Firestore.
+### 📱 **Cross-Platform**
+Seamless experience on both Android and iOS with React Native.
 
-### **4. Real-Time Chat**
-
-* In-app chat between adopters and pet owners.
-* Messages synced instantly via Firestore.
-
-### **5. Nearby Listings**
-
-* Location-based pet discovery.
-* Find pets/events near your city.
-
-### **6. AI Chatbot – Adopto**
-
-* Powered by **Gemini API**.
-* Answers pet care queries, app navigation, and more.
-
-### **7. Firestore Integration**
-
-* Pet listings, favorites, and chats stored securely in real time.
-
-### **8. Cross-Platform**
-
-* Built with **React Native + Expo Router**.
-* Works seamlessly on Android & iOS.
+</td>
+</tr>
+</table>
 
 ---
 
-## 🛠 Tech Stack
+## 🎬 See It In Action
 
-* **React Native (Expo Router)**
-* **Clerk** – Google OAuth
-* **Firebase Firestore** – Real-time DB
-* **Gemini API** – AI chatbot
-* **React Native Paper** – UI Components
-* **Zustand / Context API** – State management
-* **FlashList** – Optimized chat rendering
-* **React Navigation** – Routing
+<div align="center">
+
+### **Home & Discovery**
+<img src="assets/images/Screenshot1.png" width="250"/> <img src="assets/images/Screenshot2.png" width="250"/> <img src="assets/images/Screenshot3.png" width="250"/>
+
+### **Pet Details & Management**
+<img src="assets/images/Screenshot4.png" width="190"/> <img src="assets/images/Screenshot5.png" width="190"/> <img src="assets/images/Screenshot6.png" width="190"/> <img src="assets/images/Screenshot7.png" width="190"/>
+
+### **Chat & AI Assistant**
+<img src="assets/images/Screenshot8.png" width="250"/> <img src="assets/images/Screenshot8.1.jpg" width="250"/> <img src="assets/images/Screenshot9.png" width="250"/>
+
+</div>
 
 ---
 
-## 🚀 Installation
+## 🚀 Quick Start
 
 ### Prerequisites
 
-* Node.js `>=14`
-* Expo CLI installed globally
-* Firebase + Clerk accounts configured
-* Gemini API Key
+```bash
+Node.js >= 14
+Expo CLI
+Firebase Account
+Clerk Account
+Gemini API Key
+```
 
-### Steps
+### Installation
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/shubhmrwt01/Adoptly.git
 
-# Go to project folder
+# Navigate to project
 cd Adoptly
 
 # Install dependencies
 npm install
-# or
-yarn install
 
 # Start the development server
 npm start
-# or
-yarn start
+```
+
+### Environment Setup
+
+Create a `.env` file in the root directory:
+
+```env
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_key
+EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
 ```
 
 ---
 
-## ▶️ Usage
+## 🏗️ Tech Stack
 
-1. Run the dev server with `npm start` or `yarn start`.
-2. Open **Expo Go** app and scan the QR code.
-3. Sign in with Google to unlock features.
-4. Browse, favorite, and chat about pets easily.
+<div align="center">
 
----
+| Category | Technology |
+|----------|-----------|
+| **Framework** | React Native with Expo Router |
+| **Authentication** | Clerk (Google OAuth) |
+| **Database** | Firebase Firestore |
+| **AI Integration** | Google Gemini API |
+| **UI Components** | React Native Paper |
+| **State Management** | Zustand / Context API |
+| **Navigation** | React Navigation |
+| **Performance** | FlashList for optimized rendering |
 
-## 📱 App Screenshots
-
-> Explore Adoptly’s clean and intuitive UI.
-
----
-
-<p align="center">
-  <img src="assets/images/Screenshot1.png" width="220" />
-  <img src="assets/images/Screenshot2.png" width="220" />
-  <img src="assets/images/Screenshot3.png" width="220" />
-</p>
-<p align="center">
- 
-  <img src="assets/images/Screenshot4.png" width="165" />
-  <img src="assets/images/Screenshot5.png" width="165" />
-  <img src="assets/images/Screenshot6.png" width="165" />
-  <img src="assets/images/Screenshot7.png" width="165" />
-</p>
-<p align="center">
-  <img src="assets/images/Screenshot8.png" width="220" />
-  <img src="assets/images/Screenshot8.1.jpg" width="220" />
-  <img src="assets/images/Screenshot9.png" width="220" />
-</p>
-
-## 📥 Download & QR Code
-
-* **App URL**: [Adoptly](https://shorturl.at/2NBPt)
-
-<p align="center">
-  <img src="assets/images/qrCode.jpeg"  width="250" />
-</p>
+</div>
 
 ---
 
-## 📂 Project Structure
+## 📦 Features Breakdown
+
+<details>
+<summary><b>🔑 Authentication System</b></summary>
+
+- Google Sign-In/Sign-Up via Clerk
+- Persistent session management
+- Secure token handling
+- Profile management
+
+</details>
+
+<details>
+<summary><b>🐕 Pet Management</b></summary>
+
+- Create detailed pet listings
+- Upload multiple photos
+- Add comprehensive pet information (breed, age, health, etc.)
+- Edit and delete your listings
+- Track adoption status
+
+</details>
+
+<details>
+<summary><b>💬 Communication</b></summary>
+
+- Real-time messaging with pet owners
+- Message history synced via Firestore
+- Typing indicators
+- Read receipts
+- Image sharing in chat
+
+</details>
+
+<details>
+<summary><b>🤖 AI Chatbot - Adopto</b></summary>
+
+- Pet care advice
+- Breed recommendations
+- App navigation help
+- Adoption process guidance
+- Powered by Google Gemini
+
+</details>
+
+<details>
+<summary><b>📍 Location Features</b></summary>
+
+- Nearby pet listings
+- Local adoption events
+- Distance-based filtering
+- Interactive map view
+
+</details>
+
+---
+
+## 📱 Download Now
+
+<div align="center">
+
+<img src="assets/images/qrCode.jpeg" width="200" alt="Download QR Code"/>
+
+**[Download Adoptly](https://shorturl.at/2NBPt)**
+
+*Scan the QR code or click the link to get started*
+
+</div>
+
+---
+
+## 📂 Project Architecture
 
 ```
 Adoptly/
-├── app/
-│   ├── (tabs)/
-│   ├── chat/
-│   ├── chatbot/
-│   ├── pet-details/
-│   ├── user-post/
-│   ├── add-new-pet/
-│   └── index.jsx
-├── assets/
-├── components/
-├── config/
-├── constants/
-├── .env
-├── package.json
-└── README.md
+├── 📱 app/
+│   ├── (tabs)/              # Bottom tab navigation
+│   ├── chat/                # Chat screens
+│   ├── chatbot/             # AI assistant
+│   ├── pet-details/         # Pet detail views
+│   ├── user-post/           # User's pet listings
+│   ├── add-new-pet/         # Pet creation flow
+│   └── index.jsx            # Entry point
+├── 🎨 assets/               # Images & icons
+├── 🧩 components/           # Reusable components
+├── ⚙️ config/               # Configuration files
+├── 🔧 constants/            # App constants
+├── 🔒 .env                  # Environment variables
+└── 📦 package.json
 ```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+We love contributions! Here's how you can help:
 
-1. Fork the repo
-2. Create a new branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m "Add feature"`
-4. Push to branch: `git push origin feature-name`
-5. Open a Pull Request
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation as needed
 
 ---
 
-## 📜 License
+## 🐛 Found a Bug?
 
-This project is licensed under the [MIT License](LICENSE).
-
-> © 2025 **Shubham Rawat** – All rights reserved.
+If you find a bug or have a feature request, please [open an issue](https://github.com/shubhmrwt01/Adoptly/issues) with:
+- Clear description
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots (if applicable)
 
 ---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+**Shubham Rawat**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubhmrwt01)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/shubhmrwt01)
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ Star this repo if you find it helpful!
+
+**Made with ❤️ for pets and their future families**
+
+*© 2025 Shubham Rawat. All rights reserved.*
+
+</div>
