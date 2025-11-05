@@ -185,21 +185,6 @@ EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
 
 </details>
 
----
-
-## 📱 Download Now
-
-<div align="center">
-
-<img src="assets/images/qrCode.jpeg" width="200" alt="Download QR Code"/>
-
-**[Download Adoptly](https://shorturl.at/2NBPt)**
-
-*Scan the QR code or click the link to get started*
-
-</div>
-
----
 
 ## 📂 Project Architecture
 
