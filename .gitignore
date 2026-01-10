@@ -28,11 +28,14 @@ expo-env.d.ts
 android/app/release
 .kotlin/
 *.orig.*
+*.keystore
+!android/app/debug.keystore
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
+
 
 # ========================
 # Metro bundler
