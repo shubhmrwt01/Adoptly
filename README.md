@@ -13,7 +13,7 @@
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.dev/)
 
-[Download App](https://shorturl.at/2NBPt) • [Report Bug](https://github.com/shubhmrwt01/Adoptly/issues) • [Request Feature](https://github.com/shubhmrwt01/Adoptly/issues)
+[Download App](https://drive.google.com/file/d/1NRpjEclp27CAJOwRgCdFfsJobySbidEr/view?usp=sharing) • [Report Bug](https://github.com/shubhmrwt01/Adoptly/issues) • [Request Feature](https://github.com/shubhmrwt01/Adoptly/issues)
 
 </div>
 
