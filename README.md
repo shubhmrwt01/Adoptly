@@ -13,7 +13,14 @@
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.dev/)
 
-[Download App](https://drive.google.com/file/d/1NRpjEclp27CAJOwRgCdFfsJobySbidEr/view?usp=sharing) • [Report Bug](https://github.com/shubhmrwt01/Adoptly/issues) • [Request Feature](https://github.com/shubhmrwt01/Adoptly/issues)
+
+---
+
+[![Download App](https://img.shields.io/badge/⬇️_Download_App-2563EB?style=for-the-badge&logo=android&logoColor=white)](https://drive.google.com/file/d/1NRpjEclp27CAJOwRgCdFfsJobySbidEr/view?usp=sharing)
+&nbsp;
+[![Report Bug](https://img.shields.io/badge/🐛_Report_Bug-DC2626?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubhmrwt01/Adoptly/issues)
+&nbsp;
+[![Request Feature](https://img.shields.io/badge/✨_Request_Feature-7C3AED?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubhmrwt01/Adoptly/issues)
 
 </div>
 
