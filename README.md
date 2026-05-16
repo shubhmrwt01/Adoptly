@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="assets/images/icon.png" width="120" height="120" alt="Adoptly Logo"/>
+<p align="center">
+  <img src="./Adoptly_banner.png" alt="Adoptly Banner" width="90%" />
+</p>
 
 # 🐾 Adoptly
 
