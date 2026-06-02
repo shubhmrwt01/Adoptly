@@ -18,7 +18,7 @@
 
 ---
 
-[![Download App](https://img.shields.io/badge/⬇️_Download_App-2563EB?style=for-the-badge&logo=android&logoColor=white)](https://drive.google.com/file/d/1NRpjEclp27CAJOwRgCdFfsJobySbidEr/view?usp=sharing)
+[![Download App](https://img.shields.io/badge/⬇️_Download_App-2563EB?style=for-the-badge&logo=android&logoColor=white)](https://github.com/shubhmrwt01/Adoptly/releases/tag/v1.0.0)
 &nbsp;
 [![Report Bug](https://img.shields.io/badge/🐛_Report_Bug-DC2626?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubhmrwt01/Adoptly/issues)
 &nbsp;
