@@ -1,6 +1,7 @@
 import { useSSO } from "@clerk/clerk-expo";
 import { AntDesign } from "@expo/vector-icons";
 import * as Linking from "expo-linking";
+import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useCallback, useEffect } from "react";
 import {
@@ -13,7 +14,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Colors from "./../../constants/Colors";
+import Colors from "../../constants/Colors";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -32,10 +33,11 @@ export default function LoginScreen() {
   useWarmUpBrowser();
 
   const { startSSOFlow } = useSSO();
+  const router = useRouter();
 
   const onPress = useCallback(async () => {
     try {
-      const redirectUrl = Linking.createURL("/(tabs)/home", {
+      const redirectUrl = Linking.createURL("/", {
         scheme: "adoptly",
       });
 
@@ -47,7 +49,10 @@ export default function LoginScreen() {
 
       if (createdSessionId) {
         await setActive?.({ session: createdSessionId });
+
         console.log("✅ Google SSO successful");
+
+        router.replace("/");
       } else {
         Alert.alert(
           "Additional Verification",
@@ -98,29 +103,29 @@ export default function LoginScreen() {
               Let's adopt the pet you like and make their life happy again.
             </Text>
 
-<TouchableOpacity
-  onPress={onPress}
-  style={{
-    paddingVertical: 16,
-    marginTop: height * 0.08,
-    backgroundColor: Colors.PRIMARY,
-    width: "100%",
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-  }}
->
-  <AntDesign name="google" size={24} color="#fff" style={{ marginRight: 10 }} />
-  <Text
-    style={{
-      textAlign: "center",
-      fontFamily: "Bold",
-      fontSize: width * 0.05,
-      color: "#fff",
-    }}
-  > Continue with Google</Text>
-</TouchableOpacity>
+            <TouchableOpacity
+              onPress={onPress}
+              style={{
+                paddingVertical: 16,
+                marginTop: height * 0.08,
+                backgroundColor: Colors.PRIMARY,
+                width: "100%",
+                borderRadius: 14,
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "row",
+              }}
+            >
+              <AntDesign name="google" size={24} color="#fff" style={{ marginRight: 10 }} />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontFamily: "Bold",
+                  fontSize: width * 0.05,
+                  color: "#fff",
+                }}
+              > Continue with Google</Text>
+            </TouchableOpacity>
 
           </View>
         </View>

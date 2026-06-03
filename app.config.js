@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import "dotenv/config";
 
 export default ({ config }) => ({
   ...config,
@@ -9,19 +9,17 @@ export default ({ config }) => ({
   icon: "./assets/images/icon.png",
   scheme: "adoptly",
   userInterfaceStyle: "automatic",
-  newArchEnabled: true,
+  newArchEnabled: false,
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "com.anonymous.Adoptly",
+    bundleIdentifier: "com.shubhmrwt01.adoptly",
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
       backgroundColor: "#ffffff",
     },
-    edgeToEdgeEnabled: true,
-    permissions: ["android.permission.RECORD_AUDIO"],
-    package: "com.anonymous.Adoptly",
+    package: "com.shubhmrwt01.adoptly",
   },
   web: {
     bundler: "metro",
@@ -30,6 +28,7 @@ export default ({ config }) => ({
   },
   plugins: [
     "expo-router",
+    "expo-secure-store",
     [
       "expo-splash-screen",
       {
@@ -53,7 +52,7 @@ export default ({ config }) => ({
   extra: {
     router: {},
     eas: {
-      projectId: "cad4779c-958d-4a0d-aba1-a6ecbe68e588",
+      projectId: "27d160e0-e8ff-4bca-afd0-40f9a0a1a119",
     },
     geminiApiKey: process.env.EXPO_PUBLIC_GEMINI_API_KEY, // Loaded from .env
   },

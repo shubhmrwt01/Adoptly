@@ -1,4 +1,4 @@
-package com.anonymous.Adoptly
+package com.shubhmrwt01.adoptly
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

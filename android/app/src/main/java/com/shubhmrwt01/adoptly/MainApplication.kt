@@ -1,4 +1,4 @@
-package com.anonymous.Adoptly
+package com.shubhmrwt01.adoptly
 
 import android.app.Application
 import android.content.res.Configuration

@@ -7,11 +7,21 @@ export default function Index() {
 
   if (!isLoaded) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <ActivityIndicator size="large" />
       </View>
     );
   }
 
-  return user ? <Redirect href="/(tabs)/home" /> : <Redirect href="/Login" />;
+  return user ? (
+    <Redirect href="/(tabs)/home" />
+  ) : (
+    <Redirect href="/login" />
+  );
 }

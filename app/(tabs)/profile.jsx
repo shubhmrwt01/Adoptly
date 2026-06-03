@@ -11,23 +11,23 @@ export default function Profile() {
       icon: "add-circle",
       path: "/add-new-pet",
     },
-     {
+    {
       id: 5,
       name: "My Post ",
       icon: "bookmark",
-      path: "/../user-post",
+      path: "/user-post",
     },
     {
       id: 2,
       name: "Favorites",
       icon: "heart",
-      path: "/(tabs)/favorite",
+      path: "/favorite",
     },
     {
       id: 3,
       name: "Inbox",
       icon: "chatbubble",
-      path: "/(tabs)/inbox",
+      path: "/inbox",
     },
     {
       id: 4,
@@ -40,11 +40,19 @@ export default function Profile() {
   const { signOut } = useAuth();
   const router = useRouter();
   const { user } = useUser();
-  const onPressMenu = (menu) => {
+  const onPressMenu = async (menu) => {
     if (menu.name === "Logout") {
-      signOut();
+      try {
+        await signOut();
+
+        // Nothing else
+        return;
+      } catch (error) {
+        console.log("Logout Error:", error);
+      }
       return;
     }
+
     router.push(menu.path);
   };
 
