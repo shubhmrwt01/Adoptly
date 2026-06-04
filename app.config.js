@@ -54,6 +54,5 @@ export default ({ config }) => ({
     eas: {
       projectId: "27d160e0-e8ff-4bca-afd0-40f9a0a1a119",
     },
-    geminiApiKey: process.env.EXPO_PUBLIC_GEMINI_API_KEY, // Loaded from .env
   },
 });

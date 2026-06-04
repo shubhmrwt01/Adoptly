@@ -129,48 +129,78 @@ const makePetCard = (pet) => ({
 });
 
 /* ================================================================
-   GEMINI CALLS
+   GROQ CALLS
    ================================================================ */
-const geminiPost = async (prompt) => {
-  const API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
-  if (!API_KEY) return "API key is missing. Please check your setup.";
 
-  const res = await fetch(`${GEMINI_URL}?key=${API_KEY}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-    }),
-  });
-  const data = await res.json();
-  return (
-    data?.candidates?.[0]?.content?.parts?.[0]?.text ??
-    "No response from Gemini API."
-  );
+const fetchFromGroq = async (message) => {
+  try {
+    const API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY;
+
+    const response = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are Adopto AI, a friendly pet adoption assistant. Keep answers concise and warm.",
+            },
+            {
+              role: "user",
+              content: message,
+            },
+          ],
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.error) {
+      console.log("Groq Error:", data.error);
+      return "⚠️ Adopto AI is currently unavailable.";
+    }
+
+    return (
+      data?.choices?.[0]?.message?.content ||
+      "No response received."
+    );
+  } catch (error) {
+    console.error("Groq Error:", error);
+    return "Error connecting to AI service.";
+  }
 };
 
-const fetchFromGemini = (message) =>
-  geminiPost(
-    `You are Adopto AI, a friendly pet adoption assistant. ` +
-    `Keep answers concise and warm. User asked: ${message}`
-  ).catch((err) => {
-    console.error("Gemini error:", err);
-    return "Error connecting to AI service.";
-  });
+const fetchNearbyCenters = async (
+  location,
+  petDescription
+) => {
+  return await fetchFromGroq(`
+A user is looking for:
+${petDescription}
 
-const fetchNearbyCenters = (userLocation, petDescription) =>
-  geminiPost(
-    `You are Adopto AI, a pet adoption assistant.\n` +
-    `A user is looking for "${petDescription}" but it's not in our database.\n` +
-    `They are in "${userLocation}".\n` +
-    `Suggest 3–5 real nearby pet adoption centers, shelters, or pet shops.\n` +
-    `For each provide: Name, full Address, and a short friendly note.\n` +
-    `Keep the tone warm and helpful.`
-  ).catch((err) => {
-    console.error("Gemini nearby error:", err);
-    return "Error fetching nearby centers.";
-  });
+Location:
+${location}
 
+Suggest nearby pet adoption centers,
+animal shelters, rescue organizations,
+and pet stores where they may find this pet.
+
+Provide:
+- Name
+- Address
+- Short description
+
+Keep it concise.
+`);
+};
 /* ================================================================
    HOOK
    ================================================================ */
@@ -332,7 +362,7 @@ export default function useChatBot() {
         }
 
         /* G ── Gemini fallback */
-        push(makeBotMsg(await fetchFromGemini(userMessage)));
+        push(makeBotMsg(await fetchFromGroq(userMessage)));
 
       } finally {
         setLoading(false);

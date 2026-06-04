@@ -6,7 +6,7 @@
 
 # 🐾 Adoptly
 
-### *Connect Hearts, Find Homes*
+### _Connect Hearts, Find Homes_
 
 **A beautiful React Native app bringing pet owners and adopters together**
 
@@ -14,7 +14,6 @@
 [![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.dev/)
-
 
 ---
 
@@ -37,24 +36,30 @@ Adoptly isn't just another pet adoption app—it's a complete ecosystem designed
 <td width="50%">
 
 ### 🔐 **Secure Authentication**
+
 Google OAuth integration via Clerk ensures your data stays safe while keeping login friction-free.
 
 ### 💬 **Real-Time Chat**
+
 Connect instantly with pet owners through our Firestore-powered messaging system.
 
-### 🤖 **AI Assistant - Adopto**
-Get instant answers about pet care, adoption tips, and app navigation powered by Gemini AI.
+### 🤖 AI Assistant - Adopto
+
+Get instant answers about pet care, adoption tips, breed recommendations, and nearby adoption center suggestions powered by Groq AI.
 
 </td>
 <td width="50%">
 
 ### ❤️ **Smart Favorites**
+
 Bookmark pets you love and track them in real-time as their status updates.
 
 ### 📍 **Location-Based Discovery**
+
 Find adorable pets and adoption events happening near you.
 
 ### 📱 **Cross-Platform**
+
 Seamless experience on both Android and iOS with React Native.
 
 </td>
@@ -68,13 +73,16 @@ Seamless experience on both Android and iOS with React Native.
 <div align="center">
 
 ### **Home & Discovery**
+
 <img src="assets/images/Screenshot1.png" width="250"/> <img src="assets/images/Screenshot2.png" width="250"/> <img src="assets/images/Screenshot3.png" width="250"/>
 
 ### **Pet Details & Management**
+
 <img src="assets/images/Screenshot4.png" width="190"/> <img src="assets/images/Screenshot5.png" width="190"/> <img src="assets/images/Screenshot6.png" width="190"/> <img src="assets/images/Screenshot7.png" width="190"/>
 
 ### **Chat & AI Assistant**
-<img src="assets/images/Screenshot8.png" width="250"/> <img src="assets/images/Screenshot8.1.jpg" width="250"/> <img src="assets/images/Screenshot9.png" width="250"/>
+
+<img src="assets/images/Screenshot8.png" width="250"/> <img src="assets/images/Screenshot8_1.png" width="250"/> <img src="assets/images/Screenshot9.png" width="250"/>
 
 </div>
 
@@ -89,7 +97,7 @@ Node.js >= 14
 Expo CLI
 Firebase Account
 Clerk Account
-Gemini API Key
+Groq API Key
 ```
 
 ### Installation
@@ -115,7 +123,9 @@ Create a `.env` file in the root directory:
 ```env
 EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
 EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_key
-EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
+EXPO_PUBLIC_GROQ_API_KEY=your_groq_key
+EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET=adoptly_unsigned
 ```
 
 ---
@@ -124,16 +134,16 @@ EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
 
 <div align="center">
 
-| Category | Technology |
-|----------|-----------|
-| **Framework** | React Native with Expo Router |
-| **Authentication** | Clerk (Google OAuth) |
-| **Database** | Firebase Firestore |
-| **AI Integration** | Google Gemini API |
-| **UI Components** | React Native Paper |
-| **State Management** | Zustand / Context API |
-| **Navigation** | React Navigation |
-| **Performance** | FlashList for optimized rendering |
+| Category             | Technology                        |
+| -------------------- | --------------------------------- |
+| **Framework**        | React Native with Expo Router     |
+| **Authentication**   | Clerk (Google OAuth)              |
+| **Database**         | Firebase Firestore                |
+| **AI Integration**   | Groq (Llama 3.3 70B)              |
+| **UI Components**    | React Native Paper                |
+| **State Management** | Zustand / Context API             |
+| **Navigation**       | React Navigation                  |
+| **Performance**      | FlashList for optimized rendering |
 
 </div>
 
@@ -180,8 +190,8 @@ EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
 - Breed recommendations
 - App navigation help
 - Adoption process guidance
-- Powered by Google Gemini
-
+- Nearby adoption center suggestions
+- Powered by Groq AI (Llama 3.3 70B)
 </details>
 
 <details>
@@ -193,7 +203,6 @@ EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_key
 - Interactive map view
 
 </details>
-
 
 ## 📂 Project Architecture
 
@@ -239,6 +248,7 @@ We love contributions! Here's how you can help:
 ## 🐛 Found a Bug?
 
 If you find a bug or have a feature request, please [open an issue](https://github.com/shubhmrwt01/Adoptly/issues) with:
+
 - Clear description
 - Steps to reproduce
 - Expected vs actual behavior
@@ -271,6 +281,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Made with ❤️ for pets and their future families**
 
-*© 2025 Shubham Rawat. All rights reserved.*
+_© 2025 Shubham Rawat. All rights reserved._
 
 </div>

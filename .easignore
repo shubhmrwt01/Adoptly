@@ -1,0 +1,6 @@
+node_modules
+.git
+.expo
+android/app/build
+ios/build
+dist

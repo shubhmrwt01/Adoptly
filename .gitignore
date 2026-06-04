@@ -73,7 +73,6 @@ Thumbs.db
 # ========================
 app-example
 
-android/app/build/
-android/.gradle/
-*.apk
-*.aab
+# Native folders (Expo prebuild)
+android/
+ios/

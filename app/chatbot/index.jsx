@@ -53,7 +53,9 @@ export default function ChatBotScreen() {
               </Text>
 
               <View style={styles.badge}>
-                <Text style={styles.badgeText}>✨ Powered by Gemini</Text>
+                <Text style={styles.badgeText}>
+                  ✨ Powered by Groq
+                </Text>
               </View>
             </View>
           </View>

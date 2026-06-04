@@ -2,7 +2,10 @@ import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Appearance, View } from "react-native";
+
+Appearance.setColorScheme("light");
+
 function AuthGate({ children }) {
   const { isLoaded } = useAuth();
 
