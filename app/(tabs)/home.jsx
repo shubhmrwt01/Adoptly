@@ -1,22 +1,25 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/Home/Header";
 import PetListByCategory from "../../components/Home/PetListByCategory";
-import Slider from "../../components/Home/Slider";
 import Colors from "../../constants/Colors";
 import ChatBot from "./../../components/ChatBot";
-
 export default function Home() {
   const router = useRouter();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Scrollable  Content */}
       <View style={styles.content}>
         {/* Header */}
         <Header />
-        {/* Slider */}
-        <Slider />
+        <View style={{ marginTop: 15 }}>
+          <Image
+            source={require('../../assets/images/slider.png')}
+            style={styles.sliderImage}
+          />
+        </View>
         {/* Pet List + Category */}
         <PetListByCategory />
         {/* Add New Pet Options */}
@@ -51,7 +54,7 @@ export default function Home() {
 
       {/* Fixed ChatBot Button */}
       <ChatBot />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -62,8 +65,15 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 20,
-    marginTop: 30,
+    paddingHorizontal: 20,
+    paddingTop: 10,
+
+  },
+  sliderImage: {
+    width: Dimensions.get("screen").width * 0.9,
+    height: 200,
+    borderRadius: 15,
+    marginRight: 15,
   },
   addNewPetContainer: {
     flexDirection: "row",

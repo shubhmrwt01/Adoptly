@@ -16,7 +16,11 @@ export default function OwnerInfo({ pet, onSendPress, pressed, isOwner }) {
     >
       <View style={styles.userInfoRow}>
         <Image
-          source={{ uri: pet?.userImage }}
+          source={
+            pet?.userImage
+              ? { uri: pet.userImage }
+              : require("../../assets/images/user.png")
+          }
           style={styles.userImage}
         />
         <View>

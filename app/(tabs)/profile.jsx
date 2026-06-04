@@ -2,6 +2,7 @@ import { useAuth, useUser } from "@clerk/clerk-expo";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../../constants/Colors";
 export default function Profile() {
   const Menu = [
@@ -57,7 +58,7 @@ export default function Profile() {
   };
 
   return (
-    <View style={{ padding: 20, marginTop: 20 }}>
+    <SafeAreaView style={{ padding: 10, flex: 1 }}>
       <Text
         style={{
           fontFamily: "Medium",
@@ -130,6 +131,6 @@ export default function Profile() {
           </TouchableOpacity>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }

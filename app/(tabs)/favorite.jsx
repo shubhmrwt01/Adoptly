@@ -3,6 +3,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useCallback, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 import { db } from '../../config/FirebaseConfig';
 import Shared from './../../Shared/Shared';
 import ChatBot from './../../components/ChatBot';
@@ -39,8 +40,11 @@ export default function Favorite() {
   };
 
   return (
-    <View style={{ padding: 20, marginTop: 20 , flex: 1,
-    position: "relative",}}>
+    <SafeAreaView style={{
+      flex: 1,
+      padding: 10
+
+    }}>
       <Text style={{ fontFamily: 'Medium', fontSize: 30 }}>Favorites</Text>
 
       <FlatList
@@ -55,7 +59,7 @@ export default function Favorite() {
           </View>
         )}
       />
-       <ChatBot />
-    </View>
+      <ChatBot />
+    </SafeAreaView>
   );
 }

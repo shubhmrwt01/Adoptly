@@ -8,7 +8,7 @@ export default ({ config }) => ({
   orientation: "portrait",
   icon: "./assets/images/icon.png",
   scheme: "adoptly",
-  userInterfaceStyle: "automatic",
+  userInterfaceStyle: "light",
   newArchEnabled: false,
   ios: {
     supportsTablet: true,

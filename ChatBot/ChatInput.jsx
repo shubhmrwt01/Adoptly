@@ -18,22 +18,34 @@ const ChatInput = memo(({ onSend }) => {
     setInput("");
   }, [input, onSend]);
 
+  const hasText = input.trim().length > 0;
+
   return (
-    <View style={styles.inputContainer}>
-      <View style={styles.divider} />
+    <View style={styles.container}>
       <View style={styles.row}>
-        <TextInput
-          placeholder="Ask anything"
-          placeholderTextColor="#888"
-          style={styles.input}
-          value={input}
-          onChangeText={setInput}
-          onSubmitEditing={handleSend}
-          returnKeyType="send"
-          multiline
-        />
-        <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
-          <Ionicons name="send" size={22} color="#fff" />
+        <View style={styles.inputWrap}>
+          <TextInput
+            placeholder="Ask Adopto AI anything…"
+            placeholderTextColor={Colors.GRAY}
+            style={styles.input}
+            value={input}
+            onChangeText={setInput}
+            onSubmitEditing={handleSend}
+            returnKeyType="send"
+            multiline
+          />
+        </View>
+        <TouchableOpacity
+          style={[styles.sendBtn, !hasText && styles.sendBtnDisabled]}
+          onPress={handleSend}
+          activeOpacity={0.8}
+          disabled={!hasText}
+        >
+          <Ionicons
+            name="send-sharp"
+            size={20}
+            color={hasText ? "#1a1a18" : Colors.GRAY}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -43,41 +55,47 @@ const ChatInput = memo(({ onSend }) => {
 export default ChatInput;
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    backgroundColor: "#f1f1f1",
-    paddingBottom: 8,
-    paddingTop: 4,
-  },
-  divider: {
-    borderWidth: 0.2,
-    backgroundColor: Colors.GRAY,
-    width: "100%",
-    marginBottom: 12,
+  container: {
+    backgroundColor: Colors.WHITE,
+    borderTopWidth: 0.5,
+    borderTopColor: "#e8e8e4",
+    paddingHorizontal: 12,
+    paddingBottom: 10,
   },
   row: {
     flexDirection: "row",
     alignItems: "flex-end",
-    paddingHorizontal: 10,
-    marginBottom: 10,
+    gap: 10,
+  },
+  inputWrap: {
+    flex: 1,
+    backgroundColor: "#f4f4f0",
+    borderRadius: 20,
+    borderWidth: 0.5,
+    borderColor: "#e8e8e4",
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    minHeight: 20,
+    justifyContent: "center",
   },
   input: {
-    flex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 15,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    fontSize: 15,
-    maxHeight: 120,
-    minHeight: 50,
-    borderColor: Colors.PRIMARY,
-    borderWidth: 1,
+    fontSize: 14,
+    color: "#1a1a18",
+    maxHeight: 100,
+    lineHeight: 20,
   },
-  sendButton: {
-    backgroundColor: Colors.PRIMARY,
-    borderRadius: 12,
-    padding: 12,
-    marginLeft: 8,
-    justifyContent: "center",
+  sendBtn: {
+    // width: 44,
+    // height: 44,
+    padding: 18,
+    marginBottom: 3,
+    borderRadius: 10,
+    backgroundColor: Colors.PRIMARY,       // gold #E8B20E
     alignItems: "center",
+    justifyContent: "center",
+    alignSelf: 'center'
+  },
+  sendBtnDisabled: {
+    backgroundColor: Colors.LIGHT_PRIMARY, // pale gold when empty
   },
 });

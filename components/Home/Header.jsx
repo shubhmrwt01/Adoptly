@@ -2,29 +2,37 @@ import { useUser } from '@clerk/clerk-expo';
 import { Image, Text, View } from 'react-native';
 
 export default function Header() {
-    const {user}=useUser();
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12
+      ? "☀️ Good Morning"
+      : hour < 18
+        ? "🌤️ Good Afternoon"
+        : "🌙 Good Evening";
+  const { user } = useUser();
   return (
     <View style={{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center'
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center'
     }}>
       <View>
         <Text style={{
-            fontFamily:"Medium",
-            fontSize:20
-        }}>Welcome, </Text>
+          fontFamily: "Medium",
+          fontSize: 20
+        }}>{greeting}, </Text>
         <Text style={{
-            fontFamily:'Bold',
-            fontSize:25
-        }}>{user?.fullName}</Text>
+          fontFamily: 'Bold',
+          fontSize: 25
+        }}>{user?.firstName}</Text>
       </View>
-      <Image source={{uri:user?.imageUrl}} style={{
-        height:40,
-        width:40,
-        borderRadius:99
-      }}/>
+      <Image source={{ uri: user?.imageUrl }} style={{
+        height: 40,
+        width: 40,
+        borderRadius: 99
+      }} />
     </View>
   )
 }

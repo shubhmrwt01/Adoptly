@@ -1,11 +1,11 @@
 import { useUser } from '@clerk/clerk-expo';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Text } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
 import ChatBot from '../../components/ChatBot';
 import UserItem from '../../components/Inbox/UserItem';
 import { db } from './../../config/FirebaseConfig';
-
 export default function Inbox() {
   const { user } = useUser();
   const [userList, setUserList] = useState([]);
@@ -50,11 +50,11 @@ export default function Inbox() {
           ...other[0],
         };
       })
-      .filter(Boolean); 
+      .filter(Boolean);
   };
 
   return (
-    <View style={{ padding: 20, paddingTop: 40, flex: 1, backgroundColor: "#F1F1F1" }}>
+    <SafeAreaView style={{ flex: 1, padding: 10, backgroundColor: "#F1F1F1" }}>
       <Text style={{ fontFamily: 'Medium', fontSize: 28, marginBottom: 16 }}>
         Inbox
       </Text>
@@ -77,7 +77,7 @@ export default function Inbox() {
         renderItem={({ item }) => <UserItem userInfo={item} />}
         contentContainerStyle={{ gap: 14, paddingBottom: 40 }}
       />
-      <ChatBot/>
-    </View>
+      <ChatBot />
+    </SafeAreaView>
   );
 }

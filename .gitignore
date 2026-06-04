@@ -72,3 +72,8 @@ Thumbs.db
 # Example files
 # ========================
 app-example
+
+android/app/build/
+android/.gradle/
+*.apk
+*.aab
