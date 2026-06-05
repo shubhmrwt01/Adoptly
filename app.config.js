@@ -51,7 +51,7 @@ export default ({ config }) => ({
   extra: {
     router: {},
     eas: {
-      projectId: "98f4e5a8-8caa-4278-ad83-0b3781299f55",
+      projectId: "3c3fc967-018c-4b02-8949-19a1a4f8c5bd",
     },
   },
 });
