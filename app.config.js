@@ -1,5 +1,6 @@
 export default ({ config }) => ({
   ...config,
+  userInterfaceStyle: "light",
   name: "Adoptly",
   slug: "Adoptly",
   version: "1.0.0",
