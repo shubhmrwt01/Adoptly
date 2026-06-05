@@ -4,17 +4,14 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import * as SystemUI from "expo-system-ui";
 import { useEffect } from "react";
-import { ActivityIndicator, Appearance, View } from "react-native";
-Appearance.setColorScheme("light");
+import { ActivityIndicator, View } from "react-native";
 
 // Keep splash visible until fonts are ready
 SplashScreen.preventAutoHideAsync();
 
 function AuthGate({ children }) {
   const { isLoaded } = useAuth();
-  console.log(Appearance.getColorScheme());
 
   if (!isLoaded) {
     return (
@@ -28,15 +25,6 @@ function AuthGate({ children }) {
 }
 
 export default function RootLayout() {
-  useEffect(() => {
-    Appearance.setColorScheme("light");
-    SystemUI.setBackgroundColorAsync("#ffffff");
-
-    console.log(
-      "Theme after forcing:",
-      Appearance.getColorScheme()
-    );
-  }, []);
 
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 

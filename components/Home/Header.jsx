@@ -28,11 +28,18 @@ export default function Header() {
           fontSize: 25
         }}>{user?.firstName}</Text>
       </View>
-      <Image source={{ uri: user?.imageUrl }} style={{
-        height: 40,
-        width: 40,
-        borderRadius: 99
-      }} />
+      <Image
+        source={
+          user?.imageUrl
+            ? { uri: user.imageUrl }
+            : require("../../assets/images/user.png")
+        }
+        style={{
+          height: 40,
+          width: 40,
+          borderRadius: 99
+        }}
+      />
     </View>
   )
 }

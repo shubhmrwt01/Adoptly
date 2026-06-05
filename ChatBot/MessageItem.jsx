@@ -7,7 +7,7 @@ const MessageItem = memo(({ item }) => {
     const pet = item.pet;
     return (
       <View style={styles.petCard}>
-        {item.showImage && pet.imageUrl && (
+        {item?.showImage && pet?.imageUrl && (
           <Image source={{ uri: pet.imageUrl }} style={styles.petImageTop} />
         )}
         <View style={styles.petCardContent}>

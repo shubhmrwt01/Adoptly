@@ -73,7 +73,11 @@ export default function Profile() {
         }}
       >
         <Image
-          source={{ uri: user?.imageUrl }}
+          source={
+            user?.imageUrl
+              ? { uri: user.imageUrl }
+              : require("../../assets/images/user.png")
+          }
           style={{
             width: 80,
             height: 80,
