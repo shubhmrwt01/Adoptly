@@ -81,7 +81,7 @@ export default function LoginScreen() {
           <View style={{ padding: width * 0.06, alignItems: "center" }}>
             <Text
               style={{
-                fontFamily: "Bold",
+                fontFamily: "Outfit-Bold",
                 fontSize: width * 0.08,
                 textAlign: "center",
                 lineHeight: width * 0.1,
@@ -92,7 +92,7 @@ export default function LoginScreen() {
 
             <Text
               style={{
-                fontFamily: "Medium",
+                fontFamily: "Outfit-Medium",
                 fontSize: width * 0.045,
                 textAlign: "center",
                 color: Colors.GRAY,
@@ -120,7 +120,7 @@ export default function LoginScreen() {
               <Text
                 style={{
                   textAlign: "center",
-                  fontFamily: "Bold",
+                  fontFamily: "Outfit-Bold",
                   fontSize: width * 0.05,
                   color: "#fff",
                 }}

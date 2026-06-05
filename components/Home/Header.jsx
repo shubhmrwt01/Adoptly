@@ -20,11 +20,11 @@ export default function Header() {
     }}>
       <View>
         <Text style={{
-          fontFamily: "Medium",
+          fontFamily: "Outfit-Medium",
           fontSize: 20
         }}>{greeting}, </Text>
         <Text style={{
-          fontFamily: 'Bold',
+          fontFamily: 'Outfit-Bold',
           fontSize: 25
         }}>{user?.firstName}</Text>
       </View>

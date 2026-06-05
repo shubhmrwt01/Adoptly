@@ -6,7 +6,6 @@ import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { db } from '../../config/FirebaseConfig';
 import Shared from './../../Shared/Shared';
-import ChatBot from './../../components/ChatBot';
 import PetListItem from './../../components/Home/PetListItem';
 export default function Favorite() {
   const { user } = useUser();
@@ -45,7 +44,7 @@ export default function Favorite() {
       padding: 10
 
     }}>
-      <Text style={{ fontFamily: 'Medium', fontSize: 30 }}>Favorites</Text>
+      <Text style={{ fontFamily: 'Outfit-Medium', fontSize: 30 }}>Favorites</Text>
 
       <FlatList
         data={favPetList}
@@ -59,7 +58,6 @@ export default function Favorite() {
           </View>
         )}
       />
-      <ChatBot />
     </SafeAreaView>
   );
 }

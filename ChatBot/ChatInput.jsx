@@ -56,11 +56,11 @@ export default ChatInput;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.WHITE,
+    backgroundColor: "#fff",
     borderTopWidth: 0.5,
     borderTopColor: "#e8e8e4",
     paddingHorizontal: 12,
-    paddingBottom: 10,
+    paddingVertical: 10,
   },
   row: {
     flexDirection: "row",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   inputWrap: {
     flex: 1,
     backgroundColor: "#f4f4f0",
-    borderRadius: 20,
+    borderRadius: 10,
     borderWidth: 0.5,
     borderColor: "#e8e8e4",
     paddingHorizontal: 15,
@@ -85,8 +85,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   sendBtn: {
-    // width: 44,
-    // height: 44,
     padding: 18,
     marginBottom: 3,
     borderRadius: 10,

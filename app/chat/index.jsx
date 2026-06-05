@@ -1,4 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// ChatScreen.jsx
+// ─────────────────────────────────────────────────────────────────────────────
+
 import { useUser } from "@clerk/clerk-expo";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
 import {
   addDoc,
@@ -16,7 +21,6 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -27,7 +31,10 @@ import {
 import { db } from "../../config/FirebaseConfig";
 import Colors from "../../constants/Colors";
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────────────────────
 
 const formatTime = (date) =>
   date instanceof Date
@@ -36,21 +43,27 @@ const formatTime = (date) =>
 
 const formatDateLabel = (date) => {
   if (!(date instanceof Date)) return "";
+
   const today = new Date();
   const yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
+
   if (date.toDateString() === today.toDateString()) return "Today";
   if (date.toDateString() === yesterday.toDateString()) return "Yesterday";
   return date.toLocaleDateString([], { month: "short", day: "numeric" });
 };
 
-// ─── Custom Header ────────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sub-components
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Chat Header ───────────────────────────────────────────────────────────────
 
 const ChatHeader = ({ otherUser, onBack }) => (
   <SafeAreaView style={headerStyles.safeArea}>
     <View style={headerStyles.container}>
       <TouchableOpacity onPress={onBack} style={headerStyles.backBtn} hitSlop={12}>
-        {/* Chevron back arrow */}
         <View style={headerStyles.chevron} />
       </TouchableOpacity>
 
@@ -68,76 +81,12 @@ const ChatHeader = ({ otherUser, onBack }) => (
         <Text style={headerStyles.name} numberOfLines={1}>
           {otherUser?.name || "Chat"}
         </Text>
-        <Text style={headerStyles.status}>Active now</Text>
       </View>
     </View>
   </SafeAreaView>
 );
 
-const headerStyles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderColor: "#eee",
-  },
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    gap: 10,
-  },
-  backBtn: {
-    width: 36,
-    height: 36,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  // Chevron drawn purely with borders
-  chevron: {
-    width: 10,
-    height: 10,
-    borderLeftWidth: 2.5,
-    borderBottomWidth: 2.5,
-    borderColor: Colors.PRIMARY,
-    transform: [{ rotate: "45deg" }],
-    marginLeft: 4,
-  },
-  avatar: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-  },
-  avatarFallback: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    backgroundColor: Colors.PRIMARY,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarInitial: {
-    color: "#fff",
-    fontSize: 16,
-    fontFamily: "Medium",
-  },
-  info: {
-    flex: 1,
-  },
-  name: {
-    fontSize: 16,
-    fontFamily: "Medium",
-    color: "#111",
-  },
-  status: {
-    fontSize: 11,
-    color: "#4CAF50",
-    fontFamily: "Regular",
-    marginTop: 1,
-  },
-});
-
-// ─── Date Separator ───────────────────────────────────────────────────────────
+// ── Date Separator ────────────────────────────────────────────────────────────
 
 const DateSeparator = ({ label }) => (
   <View style={styles.dateSeparatorRow}>
@@ -147,46 +96,7 @@ const DateSeparator = ({ label }) => (
   </View>
 );
 
-// ─── Send Button ──────────────────────────────────────────────────────────────
-// FIX: use pointerEvents + position so it never takes layout space when hidden
-
-const SendButton = ({ onPress, visible }) => {
-  const anim = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    Animated.spring(anim, {
-      toValue: visible ? 1 : 0,
-      useNativeDriver: true,
-      tension: 220,
-      friction: 14,
-    }).start();
-  }, [visible]);
-
-  return (
-    <Animated.View
-      pointerEvents={visible ? "auto" : "none"}
-      style={{
-        transform: [{ scale: anim }],
-        opacity: anim,
-        // Reserve space only when visible — use width animation trick
-        width: 44,
-      }}
-    >
-      <Pressable
-        onPress={onPress}
-        style={({ pressed }) => [
-          styles.sendButton,
-          pressed && { transform: [{ scale: 0.92 }], opacity: 0.85 },
-        ]}
-      >
-        {/* Paper plane / send icon using pure View borders */}
-        <View style={styles.sendIcon} />
-      </Pressable>
-    </Animated.View>
-  );
-};
-
-// ─── Message Bubble ───────────────────────────────────────────────────────────
+// ── Message Bubble ────────────────────────────────────────────────────────────
 
 const MessageBubble = React.memo(({ item, isMe, showAvatar, showTail }) => {
   const anim = useRef(new Animated.Value(0)).current;
@@ -247,7 +157,10 @@ const MessageBubble = React.memo(({ item, isMe, showAvatar, showTail }) => {
   );
 });
 
-// ─── Main Screen ──────────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Main Screen
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function ChatScreen() {
   const { id } = useLocalSearchParams();
@@ -263,18 +176,22 @@ export default function ChatScreen() {
   const scrollTimer = useRef(null);
   const myId = user?.id;
 
-  // ── Hide the default expo-router header (we render our own) ──
+  // ── Hide expo-router's default header (we render our own) ──────────────────
+
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
 
-  // ── Fetch chat partner details ──
+  // ── Fetch chat partner details ─────────────────────────────────────────────
+
   useEffect(() => {
     if (!id) return;
+
     (async () => {
       try {
         const snap = await getDoc(doc(db, "Chat", id));
         if (!snap.exists()) return;
+
         const other = snap.data()?.users?.find(
           (u) => u.email !== user?.primaryEmailAddress?.emailAddress
         );
@@ -285,13 +202,16 @@ export default function ChatScreen() {
     })();
   }, [id]);
 
-  // ── Real-time messages ──
+  // ── Subscribe to real-time messages ───────────────────────────────────────
+
   useEffect(() => {
     if (!id) return;
+
     const q = query(
       collection(db, "Chat", id, "Messages"),
       orderBy("createdAt", "desc")
     );
+
     return onSnapshot(q, (snap) => {
       setMessages(
         snap.docs.map((d) => {
@@ -306,7 +226,8 @@ export default function ChatScreen() {
     });
   }, [id]);
 
-  // ── Scroll to bottom ──
+  // ── Scroll to bottom ───────────────────────────────────────────────────────
+
   const scrollToBottom = useCallback(() => {
     clearTimeout(scrollTimer.current);
     scrollTimer.current = setTimeout(() => {
@@ -314,11 +235,14 @@ export default function ChatScreen() {
     }, 60);
   }, []);
 
-  // ── Send ──
+  // ── Send message ───────────────────────────────────────────────────────────
+
   const handleSend = useCallback(async () => {
     const text = inputText.trim();
     if (!text || !id) return;
+
     setInputText("");
+
     try {
       await addDoc(collection(db, "Chat", id, "Messages"), {
         _id: Date.now().toString(),
@@ -337,11 +261,13 @@ export default function ChatScreen() {
     }
   }, [inputText, id, myId, user, scrollToBottom]);
 
-  // ── Render item ──
+  // ── Render helpers ─────────────────────────────────────────────────────────
+
   const renderItem = useCallback(
     ({ item, index }) => {
       const isMe = item.user._id === myId;
       const nextMsg = messages[index + 1];
+
       const showAvatar = !nextMsg || nextMsg.user._id !== item.user._id;
       const showTail = showAvatar;
       const showDate =
@@ -366,18 +292,20 @@ export default function ChatScreen() {
 
   const keyExtractor = useCallback((item) => item.id ?? item._id, []);
 
+  // ── Derived state ──────────────────────────────────────────────────────────
+
+  const hasText = inputText.trim().length > 0;
+
+  // ── Render ─────────────────────────────────────────────────────────────────
+
   return (
-    // KeyboardAvoidingView wraps everything — this is what pushes the whole
-    // screen up when the keyboard appears, including the input bar
     <KeyboardAvoidingView
       style={{ flex: 1, backgroundColor: "#F5F5F7" }}
       behavior="padding"
       keyboardVerticalOffset={Platform.OS === "android" ? 30 : 0}
     >
-      {/* Custom header (outside FlatList so it never scrolls) */}
       <ChatHeader otherUser={otherUser} onBack={() => router.back()} />
 
-      {/* Message list — fills all remaining space */}
       <FlatList
         ref={flatListRef}
         data={messages}
@@ -395,7 +323,6 @@ export default function ChatScreen() {
         keyboardShouldPersistTaps="handled"
       />
 
-      {/* Input bar — always sits above the keyboard */}
       <View style={styles.inputBar}>
         <TextInput
           style={styles.input}
@@ -407,21 +334,96 @@ export default function ChatScreen() {
           maxLength={1000}
           blurOnSubmit={false}
         />
-        <SendButton onPress={handleSend} visible={inputText.trim().length > 0} />
+        <TouchableOpacity
+          style={[styles.sendBtn, !hasText && styles.sendBtnDisabled]}
+          onPress={handleSend}
+          activeOpacity={0.8}
+          disabled={!hasText}
+        >
+          <Ionicons
+            name="send-sharp"
+            size={20}
+            color={hasText ? "#1a1a18" : Colors.GRAY}
+          />
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
 }
 
-// ─── Styles ───────────────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Styles
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+const headerStyles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderColor: "#eee",
+  },
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    gap: 10,
+  },
+  backBtn: {
+    width: 36,
+    height: 36,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  chevron: {
+    width: 10,
+    height: 10,
+    borderLeftWidth: 2.5,
+    borderBottomWidth: 2.5,
+    borderColor: Colors.PRIMARY,
+    transform: [{ rotate: "45deg" }],
+    marginLeft: 4,
+  },
+  avatar: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+  },
+  avatarFallback: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: Colors.PRIMARY,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatarInitial: {
+    color: "#fff",
+    fontSize: 16,
+    fontFamily: "Outfit-Medium",
+  },
+  info: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    fontFamily: "Outfit-Medium",
+    color: "#111",
+  },
+});
+
+// ── Screen ────────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
+  // List
   listContent: {
     paddingHorizontal: 12,
     paddingVertical: 16,
   },
 
-  // ── Message rows ──
+  // Message rows
   messageRow: {
     flexDirection: "row",
     alignItems: "flex-end",
@@ -429,6 +431,8 @@ const styles = StyleSheet.create({
   },
   myMessageRow: { justifyContent: "flex-end" },
   otherMessageRow: { justifyContent: "flex-start" },
+
+  // Avatars
   avatarSlot: {
     width: 32,
     alignItems: "center",
@@ -442,7 +446,7 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
   },
 
-  // ── Bubbles ──
+  // Bubbles
   bubble: {
     maxWidth: "72%",
     paddingHorizontal: 13,
@@ -466,10 +470,12 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   otherBubbleTail: { borderBottomLeftRadius: 4 },
+
+  // Bubble text & meta
   messageText: {
     fontSize: 15,
     color: "#111",
-    fontFamily: "Regular",
+    fontFamily: "Outfit-Regular",
     lineHeight: 21,
   },
   myMessageText: { color: "#fff" },
@@ -480,11 +486,11 @@ const styles = StyleSheet.create({
     marginTop: 3,
     gap: 3,
   },
-  timeText: { fontSize: 10, color: "#999", fontFamily: "Regular" },
+  timeText: { fontSize: 10, color: "#999", fontFamily: "Outfit-Regular" },
   myTimeText: { color: "rgba(255,255,255,0.7)" },
   tickText: { fontSize: 10, color: "rgba(255,255,255,0.75)" },
 
-  // ── Date separator ──
+  // Date separator
   dateSeparatorRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -495,52 +501,44 @@ const styles = StyleSheet.create({
   dateSeparatorText: {
     fontSize: 11,
     color: "#999",
-    fontFamily: "Regular",
+    fontFamily: "Outfit-Regular",
     paddingHorizontal: 4,
   },
 
-  // ── Input bar ──
+  // Input bar
   inputBar: {
     flexDirection: "row",
     alignItems: "flex-end",
     paddingHorizontal: 12,
     paddingVertical: 10,
-    paddingBottom: Platform.OS === "ios" ? 28 : 10, // safe area bottom on iOS
+    paddingBottom: Platform.OS === "ios" ? 28 : 10,
     borderTopWidth: 1,
     borderColor: "#eee",
     backgroundColor: "#fff",
-    gap: 8,
+    gap: 12,
   },
   input: {
     flex: 1,
     backgroundColor: "#F1F1F3",
-    borderRadius: 22,
+    borderRadius: 1,
     paddingHorizontal: 16,
     paddingTop: 10,
     paddingBottom: 10,
     fontSize: 15,
-    fontFamily: "Regular",
+    fontFamily: "Outfit-Regular",
     color: "#111",
     maxHeight: 110,
   },
-  sendButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+  sendBtn: {
+    padding: 12,
+    marginBottom: 3,
+    borderRadius: 10,
     backgroundColor: Colors.PRIMARY,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "center",
   },
-  // Send icon: right-pointing triangle
-  sendIcon: {
-    width: 0,
-    height: 0,
-    borderTopWidth: 7,
-    borderBottomWidth: 7,
-    borderLeftWidth: 13,
-    borderTopColor: "transparent",
-    borderBottomColor: "transparent",
-    borderLeftColor: "#fff",
-    marginLeft: 3,
+  sendBtnDisabled: {
+    backgroundColor: Colors.LIGHT_PRIMARY,
   },
 });

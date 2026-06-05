@@ -54,7 +54,7 @@ export default function ChatBotScreen() {
 
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>
-                  ✨ Powered by Groq
+                  ✨ Powered by Groq (Llama 3.3 70B)
                 </Text>
               </View>
             </View>

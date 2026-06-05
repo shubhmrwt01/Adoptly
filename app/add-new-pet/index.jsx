@@ -43,7 +43,7 @@ export default function AddNewPet() {
     navigation.setOptions({
       headerTitle: "Add New Pet",
       headerTintColor: "black",
-      headerTitleStyle: { fontSize: 24, fontFamily: "Medium", color: "black" },
+      headerTitleStyle: { fontSize: 24, fontFamily: "Outfit-Medium", color: "black" },
     });
     GetCategories();
   }, []);
@@ -291,7 +291,7 @@ export default function AddNewPet() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontFamily: "Bold",
+    fontFamily: "Outfit-Bold",
     marginBottom: 20,
     textAlign: "center",
   },
@@ -311,13 +311,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     elevation: 3,
   },
-  sectionTitle: { fontFamily: "Medium", fontSize: 18, marginBottom: 10 },
-  label: { marginTop: 10, fontFamily: "Regular", marginBottom: 4 },
+  sectionTitle: { fontFamily: "Outfit-Medium", fontSize: 18, marginBottom: 10 },
+  label: { marginTop: 10, fontFamily: "Outfit-Regular", marginBottom: 4 },
   input: {
     backgroundColor: "#f9f9f9",
     borderRadius: 8,
     padding: 12,
-    fontFamily: "Regular",
+    fontFamily: "Outfit-Regular",
     borderColor: "#ddd",
     borderWidth: 1,
   },
@@ -344,6 +344,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: Colors.WHITE,
     fontSize: 20,
-    fontFamily: "Medium",
+    fontFamily: "Outfit-Medium",
   },
 });

@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   addNewPetText: {
-    fontFamily: "Bold",
+    fontFamily: "Outfit-Bold",
     fontSize: 22,
   },
 });

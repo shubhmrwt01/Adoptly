@@ -24,10 +24,10 @@ export default function UserPost() {
   useEffect(() => {
     navigation.setOptions({
       headerTitle: 'User Posts',
-       headerTitleStyle: {
-       color:"black",
-      fontFamily: 'Medium',
-    fontSize: 26,
+      headerTitleStyle: {
+        color: "black",
+        fontFamily: 'Outfit-Medium',
+        fontSize: 26,
       },
     });
 
@@ -132,11 +132,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   deleteText: {
-    fontFamily: 'Regular',
+    fontFamily: 'Outfit-Regular',
     textAlign: 'center',
   },
   emptyText: {
-    fontFamily: 'Medium',
+    fontFamily: 'Outfit-Medium',
     fontSize: 23,
     textAlign: 'center',
     marginTop: '70%',

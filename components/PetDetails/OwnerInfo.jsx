@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
     borderRadius: 40,
   },
   username: {
-    fontFamily: "Medium",
+    fontFamily: "Outfit-Medium",
     fontSize: 17,
   },
   label: {
-    fontFamily: "Regular",
+    fontFamily: "Outfit-Regular",
     color: Colors.GRAY,
   },
 });

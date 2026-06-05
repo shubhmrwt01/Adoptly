@@ -4,7 +4,7 @@ import Colors from "./../../constants/Colors";
 
 export default function UserItem({ userInfo }) {
   return (
-    <View style={{ backgroundColor: Colors.WHITE ,}}>
+    <View style={{ backgroundColor: Colors.WHITE, marginHorizontal: 8 }}>
       <Link href={`/chat?id=${userInfo.docId}`} asChild>
         <Pressable
           style={{
@@ -31,8 +31,7 @@ export default function UserItem({ userInfo }) {
             <Text
               style={{
                 fontSize: 18,
-                // fontWeight: "500",
-                fontFamily: "Medium",
+                fontFamily: "Outfit-Medium",
                 color: "#111",
               }}
             >
@@ -41,11 +40,11 @@ export default function UserItem({ userInfo }) {
             <Text
               style={{
                 fontSize: 14,
-                color: "#666",
+                color: "#C0C0C0",
                 marginTop: 2,
               }}
             >
-              Tap to chat →
+              Ask about their pet
             </Text>
           </View>
         </Pressable>

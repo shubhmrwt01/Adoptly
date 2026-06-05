@@ -148,6 +148,6 @@ const styles = StyleSheet.create({
   adoptText: {
     textAlign: "center",
     fontSize: 20,
-    fontFamily: "Medium",
+    fontFamily: "Outfit-Medium",
   },
 });

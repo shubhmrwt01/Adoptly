@@ -3,7 +3,6 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Text } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import ChatBot from '../../components/ChatBot';
 import UserItem from '../../components/Inbox/UserItem';
 import { db } from './../../config/FirebaseConfig';
 export default function Inbox() {
@@ -55,7 +54,7 @@ export default function Inbox() {
 
   return (
     <SafeAreaView style={{ flex: 1, padding: 10, backgroundColor: "#F1F1F1" }}>
-      <Text style={{ fontFamily: 'Medium', fontSize: 28, marginBottom: 16 }}>
+      <Text style={{ fontFamily: 'Outfit-Medium', fontSize: 28, marginBottom: 16 }}>
         Inbox
       </Text>
 
@@ -77,7 +76,6 @@ export default function Inbox() {
         renderItem={({ item }) => <UserItem userInfo={item} />}
         contentContainerStyle={{ gap: 14, paddingBottom: 40 }}
       />
-      <ChatBot />
     </SafeAreaView>
   );
 }

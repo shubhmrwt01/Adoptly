@@ -37,7 +37,7 @@ export default function Category({ category }) {
     >
       <Text
         style={{
-          fontFamily: "Bold",
+          fontFamily: "Outfit-Bold",
           fontSize: 20,
         }}
       >
@@ -60,7 +60,7 @@ export default function Category({ category }) {
               style={[
                 styles.container,
                 selectedCategory === item?.name &&
-                  styles.selectedCategoryContainer,
+                styles.selectedCategoryContainer,
               ]}
             >
               <Image
@@ -71,7 +71,7 @@ export default function Category({ category }) {
             <Text
               style={{
                 textAlign: "center",
-                fontFamily: "Regular",
+                fontFamily: "Outfit-Regular",
                 fontSize: 15,
               }}
             >

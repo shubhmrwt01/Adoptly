@@ -61,7 +61,7 @@ export default function Profile() {
     <SafeAreaView style={{ padding: 10, flex: 1 }}>
       <Text
         style={{
-          fontFamily: "Medium",
+          fontFamily: "Outfit-Medium",
           fontSize: 30,
         }}
       >Profile</Text>
@@ -82,7 +82,7 @@ export default function Profile() {
         />
         <Text
           style={{
-            fontFamily: "Bold",
+            fontFamily: "Outfit-Bold",
             fontSize: 20,
             marginTop: 6,
           }}
@@ -91,7 +91,7 @@ export default function Profile() {
         </Text>
         <Text
           style={{
-            fontFamily: "Regular",
+            fontFamily: "Outfit-Regular",
             fontSize: 16,
             color: Colors.GRAY,
           }}
@@ -125,7 +125,7 @@ export default function Profile() {
                 borderRadius: 14,
               }}
             />
-            <Text style={{ fontFamily: "Regular", fontSize: 20 }}>
+            <Text style={{ fontFamily: "Outfit-Regular", fontSize: 20 }}>
               {item?.name}
             </Text>
           </TouchableOpacity>

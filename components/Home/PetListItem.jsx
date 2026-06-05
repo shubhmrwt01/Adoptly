@@ -36,7 +36,7 @@ export default function PetListItem({ pet, onFavChange }) {
         }}
       />
       <Text style={{
-        fontFamily: 'Medium',
+        fontFamily: 'Outfit-Medium',
         fontSize: 18,
         textAlign: 'center'
       }}>{pet?.name}</Text>
@@ -47,11 +47,11 @@ export default function PetListItem({ pet, onFavChange }) {
       }}>
         <Text style={{
           color: Colors.GRAY,
-          fontFamily: 'Regular'
+          fontFamily: 'Outfit-Regular'
         }}>{pet?.breed}</Text>
         <Text style={{
           color: Colors.PRIMARY,
-          fontFamily: 'Regular',
+          fontFamily: 'Outfit-Regular',
           fontSize: 11,
           backgroundColor: Colors.LIGHT_PRIMARY
         }}>{pet?.age} YRS</Text>

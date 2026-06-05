@@ -15,16 +15,16 @@ export default function PetInfo({ pet }) {
       <View
         style={{
           padding: 20,
-          display:'flex',
-          flexDirection:'row',
-          justifyContent:'space-between',
-          alignItems:'center'
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center'
         }}
       >
         <View>
           <Text
             style={{
-              fontFamily: "Bold",
+              fontFamily: "Outfit-Bold",
               fontSize: 30,
             }}
           >{pet?.name}</Text>
@@ -35,9 +35,9 @@ export default function PetInfo({ pet }) {
             }}
           >{pet?.address}</Text>
         </View>
-         <View>
-         </View>
-         <MarkFav pet={pet}/>
+        <View>
+        </View>
+        <MarkFav pet={pet} />
       </View>
     </View>
   );
